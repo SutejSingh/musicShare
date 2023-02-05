@@ -12,11 +12,11 @@ export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="ConnectAccounts">
+         <Stack.Navigator initialRouteName="Tabs">
           {/* Stack Screen Login, Signup and splash screen */}
             <Stack.Screen
-              name="ConnectAccounts"
-              component={ConnectAccounts}
+              name="SplashScreen"
+              component={SplashScreen}
               // Hiding header for Splash Screen
               options={{ headerShown: false }}
             />
@@ -29,6 +29,12 @@ export default function App() {
             <Stack.Screen
               name="CreateAccount"
               component={CreateAccount}
+              // Hiding header for Splash Screen
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ConnectAccounts"
+              component={ConnectAccounts}
               // Hiding header for Splash Screen
               options={{ headerShown: false }}
             />
