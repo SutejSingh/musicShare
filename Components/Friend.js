@@ -25,7 +25,7 @@ const Friend = ({item,friend}) => {
         <View>
             <View style = {[styles.friendBox,styles.shadowProp]}>
                 <View style={styles.friendBoxContent}>
-                    <View style={styles.friendBoxContentLeft}>
+                    <View style={styles.ContentLeft}>
                     <Image source={require('../assets/sean.png')} style={{height:60,width:60}} />
                         <View style={[styles.friendAppleOrSpotifyButton, {marginLeft: 5}]}>
                             <Text style = {[{fontSize: 25, fontFamily: 'Quicksand_400Regular', marginBottom:0}]}>
@@ -39,7 +39,7 @@ const Friend = ({item,friend}) => {
                     </View>
                         {
                             friend &&
-                            <View style={styles.friendBoxContentRight}>
+                            <View style={styles.ContentRight}>
                                 <Text style = {[styles.friendBoxText,{fontFamily: 'Quicksand_400Regular', fontSize: 12, color: '#ABABAB'}]}>
                                 Listening to Send My Love
                                 </Text>

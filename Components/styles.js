@@ -116,11 +116,11 @@ export default StyleSheet.create({
     zIndex: 1,
     width: '100%',
   },
-  friendBoxContentLeft:{
+  ContentLeft:{
     flexDirection:'row',
     alignItems:"center"
   },
-  friendBoxContentRight:{
+  ContentRight:{
     alignItems:"center"
   },
   friendBoxButton:{
@@ -150,5 +150,57 @@ export default StyleSheet.create({
     color: '#1DB954',
     fontSize: 8,
     margin: 2,
+  },
+  viewColum:{
+    alignItems:"center", 
+    marginTop: 8,
+  },
+  viewRow:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%',
+    padding:5
+  },
+  contentColumn:{
+    flexDirection:'column',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%',
+    padding:5 
+  },
+  profileName:{
+    fontSize: 40
+  },
+  content:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%',
+    padding:5 
+  },
+  musicMatch:{
+    paddingLeft: 40,
+    paddingRight: 20,
+    height: 20,
+    borderRadius: 14,
+    backgroundColor: 'white',
+    flexDirection:'row',
+    textAlign: 'center'
+  },
+  addFriend:{
+    paddingLeft: 40,
+    paddingRight: 20,
+    height: 20,
+    borderRadius: 14,
+    backgroundColor: 'white',
+    flexDirection:'row',
+    textAlign: 'center'
+  },
+  YourRecordTitle:{
+    fontSize: 20
+  },
+  YourRecordName:{
+    position: "absolute"
   }
 });

@@ -6,13 +6,19 @@ import SplashScreen from './Screens/Auth/SplashScreen';
 import Login from './Screens/Auth/Login';
 import CreateAccount from './Screens/Auth/CreateAccount';
 import Tabs from './Screens/Tabs';
+import ProfileScreen from './Screens/Profile/ProfileScreen';
 
 export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="Tabs">
+         <Stack.Navigator initialRouteName="ProfileScreen">
           {/* Stack Screen Login, Signup and splash screen */}
+            <Stack.Screen
+              name="ProfileScreen"
+              component={ProfileScreen}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="SplashScreen"
               component={SplashScreen}
