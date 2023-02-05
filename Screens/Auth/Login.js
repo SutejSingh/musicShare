@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View,CheckBox, Image } from "react-native";
+import { Text, TextInput, TouchableOpacity, View,CheckBox, Image,ActivityIndicator} from "react-native";
 import { authStyles } from "../../Styles/authStyles";
 import AppLoading from 'expo-app-loading';
 import { LinearGradient } from 'expo-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   useFonts,
   Quicksand_300Light,
@@ -12,8 +13,10 @@ import {
   Quicksand_700Bold,
 } from '@expo-google-fonts/quicksand';
 import colors from "../../Styles/colors";
+import axios from "axios";
 
 const Login = ({navigation}) => {
+    const [loading,setLoading] = useState(false);
     let [fontsLoaded] = useFonts({
         Quicksand_300Light,
         Quicksand_400Regular,
@@ -30,6 +33,29 @@ const Login = ({navigation}) => {
     const goToSignup = () => {
         navigation.navigate('CreateAccount')
         console.log("Go to Signup");
+    }
+    const doLogin = async () => {
+        setLoading(true);
+        await axios.post('http://localhost:3000/users/login', {
+            email: email,
+            password: password
+        })
+        .then(async (response) => {
+            if(response.data.message == "Login Successful"){
+                global.user = response.data.user;
+                const jsonValue = JSON.stringify(response.data.user)
+                setLoading(false);
+                await AsyncStorage.setItem('myUser', jsonValue)
+                navigation.navigate('Tabs')
+            }else{
+                setLoading(false);
+                console.log(response.data.message);
+            }
+        })
+        .catch((error) => {
+            setLoading(false);
+            console.log(error);
+        })
     }
     return ( 
         <View style={authStyles.container}>
@@ -53,6 +79,7 @@ const Login = ({navigation}) => {
                         onChangeText={email => setEmail(email)}
                         textContentType='emailAddress'   // Only for iOS
                         placeholder="Email"
+                        autoCapitalize='none'
                         style={authStyles.input} />
                     <Text style={authStyles.label}>
                         Password
@@ -61,15 +88,19 @@ const Login = ({navigation}) => {
                         onChangeText={text => setPassword(text)}
                         textContentType='password'   // Only for iOS
                         secureTextEntry={true}
+                        autoCapitalize='none'
                         placeholder="Password"
                         style={authStyles.input} />
                     <View>
 
                     </View>
-                    <TouchableOpacity style={authStyles.button}>
-                        <Text style={authStyles.buttonText}>
-                            Login
-                        </Text>
+                    <TouchableOpacity onPress={() => doLogin()} style={authStyles.button}>
+                        {loading && <ActivityIndicator/>}
+                        {!loading && 
+                            <Text style={authStyles.buttonText}>
+                                Login
+                            </Text>
+                        }
                     </TouchableOpacity>
                     <View style={authStyles.formBottom}>
                         <Text style={authStyles.formTinyText}>

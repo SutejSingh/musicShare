@@ -23,15 +23,13 @@ import Friend from "../../Components/Friend";
 import FadeView from "../../Components/FadeView";
 import styles from "../../Components/styles";
 import colors from "../../Styles/colors";
-
-
+import axios from "axios";
 
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 const FriendScreen = ({navigation,route}) => {
-    
     const [selectedFriendType, setSelectedFriendType] = useState(0)
     const [FriendData,setFriendData] = useState([
         {name: 'Sean Kim', username: 'seann.kim'},
@@ -40,10 +38,23 @@ const FriendScreen = ({navigation,route}) => {
         {name: 'Daniel Youn', username: 'korean_daniel'},
         {name: 'Jaiv Doshi', username: 'jaiv_doshi'},
         {name: 'Joonho Hong', username: 'jho'}
-    
     ]);
-    
-    
+
+    const [allUsers, setAllUsers] = useState([])
+    useEffect(() => {
+        async function fetchUsers() {
+            await axios.get('http://localhost:3000/users/returnAllUsers')
+            .then(res => {
+                console.log(res.data)
+                setAllUsers(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        fetchUsers()
+    }, [])
+
     const leftAnim = useRef(new Animated.Value(50)).current
     useEffect(() => {
         Animated.timing(
@@ -87,15 +98,15 @@ const FriendScreen = ({navigation,route}) => {
             <Header page={'friends'} navigation={navigation} />
                 <TabSelector />
                 <FlatList
-                        style={homestyles.activityList}
-                        horizontal={false}
-                        data={FriendData}
-                        showsHorizontalScrollIndicator={false}
-                        renderItem={({item}) => (
-                            <Friend item ={item}/>
-                        )}
-                        keyExtractor={item => item.index}
-                    />
+                    style={homestyles.activityList}
+                    horizontal={false}
+                    data={selectedFriendType == 1? allUsers: FriendData}
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({item}) => (
+                        <Friend friend={!selectedFriendType} item ={item}/>
+                    )}
+                    keyExtractor={item => item.index}
+                />
         </SafeAreaView>
      );
 }
