@@ -38,7 +38,7 @@ import colors from '../../Styles/colors';
             <Text style={[authStyles.subtitleText,{fontFamily: 'Quicksand_400Regular',fontSize:27}]}>
                 Connect your music apps!
             </Text>
-            <ConnectionButton app='apple' />
+            <ConnectionButton  app='apple' />
             <ConnectionButton app='spotify' />
             </LinearGradient>
         </View>

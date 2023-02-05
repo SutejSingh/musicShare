@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ConnectAccounts from './Screens/Auth/ConnectAccounts';
 import { NavigationContainer } from '@react-navigation/native';
@@ -12,7 +11,7 @@ export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="Tabs">
+         <Stack.Navigator initialRouteName="CreateAccount">
           {/* Stack Screen Login, Signup and splash screen */}
             <Stack.Screen
               name="SplashScreen"
@@ -40,12 +39,12 @@ export default function App() {
             />
             <Stack.Screen
               name="Tabs"
-              component={Tabs}
+              component={Tabs}     
               // Hiding header for Splash Screen
               options={{ headerShown: false }}
             />
          </Stack.Navigator>
     </NavigationContainer>
-  );
+  );      
 }
 

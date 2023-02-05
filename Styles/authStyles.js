@@ -109,6 +109,12 @@ export const authStyles = StyleSheet.create({
         color:'white',
         fontSize:13,
         fontWeight:'bold'
+    },
+    underline: {
+        textDecorationLine: 'underline'
+    },
+    marginSpace:{
+        marginTop: 50
     }
   });
   
