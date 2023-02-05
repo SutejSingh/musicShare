@@ -68,7 +68,7 @@ const Home = ({route,navigation}) => {
     return ( 
         <SafeAreaView style={homestyles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Header />
+                <Header navigation={navigation}/>
                 <View style={homestyles.titleBlock}>
                     <Text style={[homestyles.titleText,{fontFamily:'Quicksand_700Bold'}]}>
                         Good {greeting}, {global.user.name}!

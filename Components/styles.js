@@ -41,7 +41,7 @@ export default StyleSheet.create({
   },
   friendBox:{
     margin: 10,
-    width: 410,
+    width: '95%',
     height: 78,
     borderWidth: 5,
     backgroundColor: 'white',
@@ -66,7 +66,7 @@ export default StyleSheet.create({
       padding:5 
   },
   friendBoxText:{
-    fontSize: 20, 
+    fontSize: 18, 
   },
   friendTabBar:{
     marginTop: 20,

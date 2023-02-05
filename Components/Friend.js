@@ -18,47 +18,45 @@ const Friend = ({item}) => {
     const username = item.username
 
     return ( 
-        <View>
-            <View style = {[styles.friendBox,styles.shadowProp]}>
-                <View style={styles.friendBoxContent}>
-                    <View style={styles.friendBoxContentLeft}>
-                    <Image source={require('../assets/sean.png')} style={{height:60,width:60}} />
-                        <View style={[styles.friendAppleOrSpotifyButton, {marginLeft: 5}]}>
-                            <Text style = {[{fontSize: 25, fontFamily: 'Quicksand_400Regular', marginBottom:0}]}>
-                            {name}
-                            </Text>
-                            <View style={[styles.friendBoxRow, {marginTop:0, padding:0}]}>
-                                <UserMusicFriendButtom app={'apple'} username={item.username}/>
-                                <UserMusicFriendButtom app={'spotify'} username={item.username}/>
-                            </View>
+        <View style = {[styles.friendBox,styles.shadowProp]}>
+            <View style={styles.friendBoxContent}>
+                <View style={styles.friendBoxContentLeft}>
+                <Image source={require('../assets/sean.png')} style={{height:60,width:60}} />
+                    <View style={[styles.friendAppleOrSpotifyButton, {marginLeft: 5}]}>
+                        <Text style = {[{fontSize: 25, fontFamily: 'Quicksand_400Regular', marginBottom:0}]}>
+                        {name}
+                        </Text>
+                        <View style={[styles.friendBoxRow, {marginTop:0, padding:0}]}>
+                            <UserMusicFriendButtom app={'apple'} username={item.username}/>
+                            <UserMusicFriendButtom app={'spotify'} username={item.username}/>
                         </View>
                     </View>
-                    <View style={styles.friendBoxContentRight}>
-                        <Text style = {[styles.friendBoxText,{fontFamily: 'Quicksand_400Regular', fontSize: 12, color: '#ABABAB'}]}>
-                        Listening to Send My Love
-                        </Text>
-                        <View style={styles.friendBoxRow}>
-                        <LinearGradient
-                            colors={[colors.primary, colors.secondary]}
-                            style={{borderRadius: 13.5, padding: 1, margin: 2}}
-                            >
-                            <TouchableOpacity style={styles.friendTabBarOnTab}>
-                                <Text>
-                                    Share Music
-                                </Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
-                        <LinearGradient
-                            colors={[colors.primary, colors.secondary]}
-                            style={{borderRadius: 13.5, padding: 1, margin: 2}}
-                            >
-                            <TouchableOpacity style={styles.friendTabBarOnTab}>
-                                <Text>
-                                    Remove
-                                </Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
-                        </View>
+                </View>
+                <View style={styles.friendBoxContentRight}>
+                    <Text style = {[styles.friendBoxText,{fontFamily: 'Quicksand_400Regular', fontSize: 12, color: '#ABABAB'}]}>
+                    Listening to Send My Love
+                    </Text>
+                    <View style={styles.friendBoxRow}>
+                    <LinearGradient
+                        colors={[colors.primary, colors.secondary]}
+                        style={{borderRadius: 13.5, padding: 1, margin: 2}}
+                        >
+                        <TouchableOpacity style={styles.friendTabBarOnTab}>
+                            <Text>
+                                Share Music
+                            </Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
+                    <LinearGradient
+                        colors={[colors.primary, colors.secondary]}
+                        style={{borderRadius: 13.5, padding: 1, margin: 2}}
+                        >
+                        <TouchableOpacity style={styles.friendTabBarOnTab}>
+                            <Text>
+                                Remove
+                            </Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
                     </View>
                 </View>
             </View>

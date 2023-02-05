@@ -30,7 +30,7 @@ import colors from "../../Styles/colors";
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const FriendScreen = () => {
+const FriendScreen = ({navigation,route}) => {
     
     const [selectedFriendType, setSelectedFriendType] = useState(0)
     const [FriendData,setFriendData] = useState([
@@ -84,7 +84,7 @@ const FriendScreen = () => {
     }
     return ( 
         <SafeAreaView style={homestyles.container}>
-            <Header page={'friends'} />
+            <Header page={'friends'} navigation={navigation} />
                 <TabSelector />
                 <FlatList
                         style={homestyles.activityList}
