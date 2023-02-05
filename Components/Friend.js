@@ -23,7 +23,7 @@ const Friend = ({item}) => {
                 <View style={styles.friendBoxContentLeft}>
                 <Image source={require('../assets/sean.png')} style={{height:60,width:60}} />
                     <View style={[styles.friendAppleOrSpotifyButton, {marginLeft: 5}]}>
-                        <Text style = {[{fontSize: 25, fontFamily: 'Quicksand_400Regular', marginBottom:0}]}>
+                        <Text style = {[{fontSize: 20, fontFamily: 'Quicksand_400Regular', marginBottom:0}]}>
                         {name}
                         </Text>
                         <View style={[styles.friendBoxRow, {marginTop:0, padding:0}]}>

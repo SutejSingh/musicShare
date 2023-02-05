@@ -23,7 +23,6 @@ router.post('/signup', async (req, res) => {
     if(matchingUser){
         res.send("Username already exists")
         return
-
     }
 
     // if email already exists

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View,CheckBox, Image } from "react-native";
+import { Text, TextInput, TouchableOpacity, View,CheckBox, Image, KeyboardAvoidingView,ActivityIndicator } from "react-native";
 import { authStyles } from "../../Styles/authStyles";
 import AppLoading from 'expo-app-loading';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -12,6 +12,8 @@ import {
   Quicksand_700Bold,
 } from '@expo-google-fonts/quicksand';
 import colors from "../../Styles/colors"
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 
 const CreateAccount = ({navigation}) => {
     let [fontsLoaded] = useFonts({
@@ -25,9 +27,37 @@ const CreateAccount = ({navigation}) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading,setLoading] = useState(false);
 
     if (!fontsLoaded) {
         return <AppLoading />;
+    }
+    const doSignUp = async () => {
+        setLoading(true);
+        await axios.post('http://localhost:3000/users/signUp', {
+            name: name,
+            username: username,
+            email: email,
+            password: password
+        })
+        .then(async (response) => {
+            if(response.data._id){
+                global.user = response.data;
+                const jsonValue = JSON.stringify(response.data)
+                setLoading(false);
+                await AsyncStorage.setItem('myUser', jsonValue)
+                navigation.navigate('Tabs')
+            }else if(response.data){
+                alert(response.data)
+            }else{
+                setLoading(false);
+                console.log(response.data.message);
+            }
+        })
+        .catch((error) => {
+            setLoading(false);
+            console.log(error);
+        })
     }
     const goToSignin= () => {
         navigation.navigate('Login')
@@ -40,6 +70,7 @@ const CreateAccount = ({navigation}) => {
                 colors={[colors.primary, colors.secondary]}
                 locations={[0, 0.9]}
                 style={authStyles.gradientBackground}>
+            <KeyboardAvoidingView style={{width:'100%'}}>
             <View style={[authStyles.authHeader, {marginTop: 50}]}>
                 <Text style={[authStyles.boldTitleText,{fontFamily: 'Quicksand_700Bold',}]}>
                     Create Account
@@ -61,6 +92,7 @@ const CreateAccount = ({navigation}) => {
                         Username
                     </Text>
                     <TextInput 
+                        autoCapitalize="none"
                         onChangeText={username => setUsername(username)}
                         textContentType='username'   // Only for iOS
                         placeholder="Username"
@@ -72,6 +104,7 @@ const CreateAccount = ({navigation}) => {
                         onChangeText={email => setEmail(email)}
                         textContentType='emailAddress'   // Only for iOS
                         placeholder="Email"
+                        autoCapitalize="none"
                         style={authStyles.input} />
                     <Text style={authStyles.label}>
                         Password
@@ -89,10 +122,15 @@ const CreateAccount = ({navigation}) => {
                         </Text>
                     </View>
                     </View>
-                    <TouchableOpacity style={[authStyles.button, {marginTop: 100}]}>
-                        <Text style={authStyles.buttonText}>
-                            Sign up
-                        </Text>
+                    <TouchableOpacity onPress={() => doSignUp()} style={[authStyles.button, {marginTop: 100}]}>
+                        {loading && <ActivityIndicator /> }
+                        {
+                            !loading &&
+                            <Text style={authStyles.buttonText}>
+                                Sign up
+                            </Text>
+                        }
+                       
                     </TouchableOpacity>
                     <View style={authStyles.formBottom}>
                         <Text style={authStyles.formTinyText}>
@@ -106,6 +144,7 @@ const CreateAccount = ({navigation}) => {
                     </View>
                 </View>
             </View>
+            </KeyboardAvoidingView>
             </LinearGradient>
         </View>
      );
