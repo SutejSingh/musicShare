@@ -26,9 +26,19 @@ const UserSchema = new mongoose.Schema({
     appleMusicCred: {
         type: String,
     },
-    spotifyCred: {
+    spotifyUsername: {
         type: String,
-    }
+    },
+    spotifyLink:{
+        type: String,
+    },
+    spotifyProfilePic: {
+        type:String
+    },
+    spotifyAccessToken: {
+        type: String,
+    },
+    
     
 });
 

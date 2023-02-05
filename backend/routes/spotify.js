@@ -8,6 +8,9 @@ var client_id = 'bd3de74cd59947e0b94f02d6dcaa0ead'; // Your client id
 var client_secret = '3770d0df6a944b599048844e021dcef2'; // Your secret
 var redirect_uri = 'http://localhost:3000/spotify/callback'; // Your redirect uri
 
+require('../database')
+const UserModel = require('../models/User')
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -25,8 +28,11 @@ var generateRandomString = function(length) {
 
 var stateKey = 'spotify_auth_state';
 
-router.get('/login', function(req, res) {
 
+var spotifyNewUserID = "";
+
+router.get('/login', function(req, res) {
+  spotifyNewUserID = req.query.userID;
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
@@ -41,7 +47,7 @@ router.get('/callback', function(req, res) {
 
   // your spotifylication requests refresh and access tokens
   // after checking the state parameter
-
+  
   var code = req.query.code || null;
   var state = req.query.state || null;
   var storedState = req.cookies ? req.cookies[stateKey] : null;
@@ -73,12 +79,13 @@ router.get('/callback', function(req, res) {
         };
 
         // use the access token to access the Spotify Web API
-        request.get(options, function(error, response, body) {
-          console.log(body);
+        request.get(options, async function(error, response, body) {
+            console.log(body);
+            await UserModel.updateOne({_id: spotifyNewUserID}, {spotifyUsername: body.id, spotifyLink: body.external_urls.spotify, spotifyProfilePic: body.images[0]?.url ,spotifyAccessToken: access_token})
+            .then((data) => {
+              res.send(data);
+            })
         });
-
-        // we can also pass the token to the browser to make requests from there
-        res.send(access_token)
       } else {
         res.redirect('/#' +
           querystring.stringify({
@@ -113,4 +120,23 @@ router.get('/refresh_token', function(req, res) {
   });
 });
 
+
+// var spotifyAPI = new SpotifyWebApi()
+// spotifyAPI.setAccessToken(access_token)
+
+// router.get('/getUserPlaylists', function(req, res) {
+//   const userID = req.body.userID
+//   spotifyAPI.getUserPlaylists(userID)
+
+
+// })
+
+
+
+
+
+
 module.exports = router
+
+
+
