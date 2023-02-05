@@ -24,33 +24,6 @@ import FadeView from "../../Components/FadeView";
 import styles from "../../Components/styles";
 import colors from "../../Styles/colors";
 
-{/* <View style = {styles.friendTabBar}>
-<View style={styles.friendTabBarContent}> */}
-    {/* {My Friends} */}
-    {/* <LinearGradient
-        colors={[colors.primary, colors.secondary]}
-        style={{borderRadius: 13.5, padding: 1}}
-    >
-        <TouchableOpacity style={styles.friendTabBarOnTab}>
-            <Text>
-                My friends
-            </Text>
-        </TouchableOpacity>
-    </LinearGradient>
-    <TouchableOpacity>
-        <Text>
-            Request
-        </Text>
-    </TouchableOpacity>
-    <TouchableOpacity>
-        <Text>
-           Suggestions
-        </Text>
-    </TouchableOpacity>
-
-</View>
-</View> */}
-
 
 
 
@@ -58,14 +31,24 @@ const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 const FriendScreen = () => {
-
+    
     const [selectedFriendType, setSelectedFriendType] = useState(0)
-
+    const [FriendData,setFriendData] = useState([
+        {name: 'Sean Kim', username: 'seann.kim'},
+        {name: 'Abhi', username: 'abbbhiii'},
+        {name: 'Linda Tam', username: 'Lindakola'},
+        {name: 'Daniel Youn', username: 'korean_daniel'},
+        {name: 'Jaiv Doshi', username: 'jaiv_doshi'},
+        {name: 'Joonho Hong', username: 'jho'}
+    
+    ]);
+    
+    
     const leftAnim = useRef(new Animated.Value(50)).current
     useEffect(() => {
         Animated.timing(
             leftAnim, {
-            toValue: selectedFriendType == 0 ? SCREEN_WIDTH * 0.02 : selectedFriendType == 1 ? SCREEN_WIDTH * .33 : SCREEN_WIDTH * .66,
+            toValue: selectedFriendType == 0 ? SCREEN_WIDTH * 0.02 : selectedFriendType == 1 ? SCREEN_WIDTH * .33 : SCREEN_WIDTH * .63,
             duration: 400,
             useNativeDriver: false,
             easing: Easing.linear()
@@ -82,7 +65,7 @@ const FriendScreen = () => {
                 {/* highlighter is here */}
                 <Animated.View style={[styles.friendTabBarOnTab, { alignItems: 'center', justifyContent: 'center', left: leftAnim, position: 'absolute', backgroundColor: colors.primary, width: '33%', zIndex: 1, height: "80%"}]}>
                     <FadeView duration={700}>
-                        <Text style={[ { zIndex: 3 }]}> {selectedFriendType == 0 ? "My Friends" : selectedFriendType == 1 ? "Suggestions" : "Requests"}</Text>
+                        <Text style={[ { zIndex: 3 ,color:'white',fontWeight:'700'}]}> {selectedFriendType == 0 ? "My Friends" : selectedFriendType == 1 ? "Suggestions" : "Requests"}</Text>
                     </FadeView>
                 </Animated.View>
                 {/* non highlighted text */}
@@ -103,7 +86,16 @@ const FriendScreen = () => {
         <SafeAreaView style={homestyles.container}>
             <Header page={'friends'} />
                 <TabSelector />
-            <Friend/>
+                <FlatList
+                        style={homestyles.activityList}
+                        horizontal={false}
+                        data={FriendData}
+                        showsHorizontalScrollIndicator={false}
+                        renderItem={({item}) => (
+                            <Friend item ={item}/>
+                        )}
+                        keyExtractor={item => item.index}
+                    />
         </SafeAreaView>
      );
 }

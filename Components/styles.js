@@ -90,12 +90,13 @@ export default StyleSheet.create({
   tabSelector:{
     backgroundColor: 'white',
     height: 43,
-    borderRadius: 100,
+    borderRadius: 60,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
     marginBottom: "3%",
-    marginTop: "3%"
+    marginTop: "3%",
+    marginHorizontal:7
   },
   friendTabBarOnTab:{
     paddingLeft: 4,
@@ -131,21 +132,23 @@ export default StyleSheet.create({
     flexDirection:'row',
     alignItems:"center",
   },
-  friendBoxButtonContent:{
-    flexDirection:'row',
-    alignItems:"center",
-    margin:4,
+  friendBoxCol:{
+    alignItems:"center", 
+    marginTop: 8,
   },
-  friendBoxButtonContent:{
+  friendBoxRow:{
     flexDirection:'row',
     alignItems:"center", 
     marginTop: 8,
   },
-  friendAppleOrSpotifyButton:{
-    alignItems:"center",
-    margin:4,
-  },
   friendAppleButton:{
    color:('rgba(249, 76, 87, 0.95)'),
+   fontSize: 8,
+   margin: 2,
+  },
+  friendSpotifyButton:{
+    color: '#1DB954',
+    fontSize: 8,
+    margin: 2,
   }
 });

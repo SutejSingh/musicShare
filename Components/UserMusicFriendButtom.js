@@ -4,12 +4,15 @@ import styles from "./styles";
 
 const UserMusicFriendButtom = (props) => {
     const app = props.app;
-
+    const username = props.username
     return ( 
-        <TouchableOpacity style={styles.friendAppleButton}>
-            <Image source={app == "apple" ? require('../assets/apple.png'):require('../assets/spotify.png')} style={{width: 30, height: 30}}/>
-            <Text style={styles.friendAppleButton}>
-                UserName
+        
+
+        <TouchableOpacity style={styles.friendBoxRow}>
+
+            <Image source={app == "apple" ? require('../assets/Apple_Color.png'):require('../assets/Spotify_Color.png')} style={{width: 12, height: 12}}/>
+            <Text style={app == "apple" ? styles.friendAppleButton : styles.friendSpotifyButton}>
+                {props.username}
             </Text>
         </TouchableOpacity>
      );
