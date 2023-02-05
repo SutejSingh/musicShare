@@ -31,15 +31,15 @@ const Home = ({route,navigation}) => {
     // get data for differnet friends current songs
     const [activityData,setActivityData] = useState([
         {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Abhinav',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Sean',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Linda',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'}
+        {art:'https://indiater.com/wp-content/uploads/2021/06/Free-Music-Album-Cover-Art-Banner-Photoshop-Template.jpg',songName:'Say You Won\'t Let Go',friend:'Sean',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'},
+        {art:'https://i1.sndcdn.com/artworks-DvosdNeBgm9ZZ7gK-HT40tA-t500x500.jpg',songName:'Say You Won\'t Let Go',friend:'Linda',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'}
     ]);
     const [hubTopSongs,setHubTopSongs] = useState([
         // cover arts images for songs urls
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You \'t Let Go'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You \'t Let Go'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go'},
+        {art:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfugDrYHDSZPDp3tx4ifHgkE1pBqKT8bPbyA&usqp=CAU',songName:'Say You \'t Let Go'},
+        {art:'https://upload.wikimedia.org/wikipedia/en/b/b2/Olivia_Rodrigo_-_SOUR.png',songName:'Say You Won\'t Let Go'},
+        {art:'https://www.thisisdig.com/wp-content/uploads/2021/08/711Qhaw8GL._AC_SL1425_-e1628675623107.jpg',songName:'Say You \'t Let Go'},
+        {art:'https://pbs.twimg.com/media/FPrttgEVEAASpXo?format=jpg&name=medium',songName:'Say You Won\'t Let Go'},
         {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You \'t Let Go'},
         {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go'},
     ]);

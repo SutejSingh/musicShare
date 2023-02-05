@@ -45,6 +45,7 @@ export const homestyles = StyleSheet.create({
     blockHeader:{
         flexDirection:'row',
         justifyContent:'space-between',
+        alignItems:'center'
     },
     blockHeaderText:{
         fontWeight:'600',

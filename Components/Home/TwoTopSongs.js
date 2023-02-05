@@ -14,7 +14,7 @@ const TwoTopSongs = ({item}) => {
                     </Text>
                 </View>
                 <TouchableOpacity>
-                    <MaterialCommunityIcons name="dots-vertical" size={20}/>
+                    <MaterialCommunityIcons name="dots-vertical" size={20} style={{marginLeft:-4}}/>
                 </TouchableOpacity>
             </View>
             <View style={homestyles.topSongWrapper}>
@@ -26,7 +26,7 @@ const TwoTopSongs = ({item}) => {
                 </View>
                 {/* three dots */}
                 <TouchableOpacity>
-                    <MaterialCommunityIcons name="dots-vertical" size={20} style={{marginRight:8}}/>
+                    <MaterialCommunityIcons name="dots-vertical" size={20} style={{marginLeft:-4}}/>
                 </TouchableOpacity>
             </View>
         </View>
