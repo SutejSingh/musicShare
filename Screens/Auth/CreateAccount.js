@@ -15,6 +15,7 @@ import colors from "../../Styles/colors"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
+
 const CreateAccount = ({navigation}) => {
     let [fontsLoaded] = useFonts({
         Quicksand_300Light,
@@ -46,7 +47,7 @@ const CreateAccount = ({navigation}) => {
                 const jsonValue = JSON.stringify(response.data)
                 setLoading(false);
                 await AsyncStorage.setItem('myUser', jsonValue)
-                navigation.navigate('Tabs')
+                navigation.navigate('ConnectAccounts')
             }else if(response.data){
                 alert(response.data)
             }else{

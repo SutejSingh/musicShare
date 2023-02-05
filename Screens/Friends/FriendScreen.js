@@ -31,19 +31,6 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 
 const FriendScreen = ({navigation,route}) => {
     const [selectedFriendType, setSelectedFriendType] = useState(0)
-<<<<<<< HEAD
-    const [FriendData,setFriendData] = useState([
-        {name: 'Sean Kim', username: 'seann.kim'},
-        {name: 'Abhi', username: 'abbbhiii'},
-        {name: 'Linda Tam', username: 'Lindakola'},
-        {name: 'Daniel Youn', username: 'korean_daniel'},
-        {name: 'Jaiv Doshi', username: 'jaiv_doshi'},
-        {name: 'Joonho Hong', username: 'jho'}
-    ]);
-
-    const [allUsers, setAllUsers] = useState([])
-    useEffect(() => {
-=======
     const [FriendData,setFriendData] = useState(global.user.friends);
 
     const [allUsers, setAllUsers] = useState([])
@@ -58,7 +45,6 @@ const FriendScreen = ({navigation,route}) => {
                 console.log(err)
             })
         }
->>>>>>> frontend
         async function fetchUsers() {
             await axios.get('http://localhost:3000/users/returnAllUsers')
             .then(res => {
@@ -70,10 +56,7 @@ const FriendScreen = ({navigation,route}) => {
             })
         }
         fetchUsers()
-<<<<<<< HEAD
-=======
         fetchFriends()
->>>>>>> frontend
     }, [])
 
     const leftAnim = useRef(new Animated.Value(50)).current

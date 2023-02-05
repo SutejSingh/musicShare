@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ConnectionButton from '../../Components/ConnectionButton';
 import LoginButton from '../../Components/SpotifyConnect';
+import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
 import { authStyles } from '../../Styles/authStyles';
 import {
     useFonts,
@@ -14,7 +15,18 @@ import AppLoading from 'expo-app-loading';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors from '../../Styles/colors';
 
- const ConnectAccounts = () => {
+import * as WebBrowser from 'expo-web-browser';
+import { useState } from 'react';
+import '../../assets/global'
+
+WebBrowser.maybeCompleteAuthSession();
+// Endpoint
+const discovery = {
+  authorizationEndpoint: 'https://accounts.spotify.com/authorize',
+  tokenEndpoint: 'https://accounts.spotify.com/api/token',
+};
+
+const ConnectAccounts = () => {
     let [fontsLoaded] = useFonts({
         Quicksand_300Light,
         Quicksand_400Regular,
@@ -22,6 +34,14 @@ import colors from '../../Styles/colors';
         Quicksand_600SemiBold,
         Quicksand_700Bold,
     });
+
+
+    const [result, setResult] = useState(null);
+
+    const _handlePressButtonAsync = async () => {
+        let result = await WebBrowser.openBrowserAsync('http://localhost:3000/spotify/login?userID='+global.user._id);
+        setResult(result);
+    };
 
     if (!fontsLoaded) {
         return <AppLoading />;
@@ -39,7 +59,7 @@ import colors from '../../Styles/colors';
                 Connect your music apps!
             </Text>
             <ConnectionButton  app='apple' />
-            <ConnectionButton app='spotify' />
+            <ConnectionButton onPress={() => _handlePressButtonAsync()} app='spotify' />
             </LinearGradient>
         </View>
      );
