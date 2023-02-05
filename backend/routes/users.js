@@ -78,8 +78,10 @@ router.get('/returnAllUsers', async (req,res) => {
 router.post('/addFriend', async (req, res) => {
     const userID = req.body.userID
     const targetUserID = req.body.targetUserID
-    const targetUser = await UserModel.findOne({_id: targetUserID})
-    const user = await UserModel.findOne({_id: userID})
+    var targetUser = await UserModel.findOne({_id: targetUserID})
+    var user = await UserModel.findOne({_id: userID})
+    var friends = user.friends
+    var targetFriends = targetUser.friends
     if(user == null){
         res.send("Invalid user")
         return
@@ -92,13 +94,19 @@ router.post('/addFriend', async (req, res) => {
         res.send("Cannot add yourself as a friend")
         return
     }
-    if(user.friends.includes(targetUserID)){
+    if(friends.includes(targetUserID)){
         res.send("Already friends")
         return
     }
-    user.friends.push(targetUserID)
+    console.log(user.friends)
+    friends.push(targetUserID)
+    targetFriends.push(userID)
+    await UserModel.updateOne({_id: userID}, {friends: friends})
+    await UserModel.updateOne({_id: targetUserID}, {friends: targetFriends})
     targetUser.friends.push(userID) 
-
+    const userFinal = await UserModel.findOne({_id: userID})
+    console.log(userFinal)
+    res.send(userFinal)
 })
 
 // return all friend objects of a user given their id
