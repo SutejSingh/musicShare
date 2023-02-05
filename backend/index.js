@@ -18,8 +18,11 @@ app.get('/', (req, res) => {
 })
 
 const userRouter = require('./routes/users')
+const spotifyRouter = require('./routes/spotify')
 
 app.use('/users', userRouter)
+app.use('/spotify', spotifyRouter)
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
