@@ -31,8 +31,8 @@ const Home = ({route,navigation}) => {
     // get data for differnet friends current songs
     const [activityData,setActivityData] = useState([
         {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Abhinav',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Abhinav',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'},
-        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Abhinav',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'}
+        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Sean',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'},
+        {art:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6',songName:'Say You Won\'t Let Go',friend:'Linda',friendProfileImage:'https://lastfm.freetls.fastly.net/i/u/ar0/11d0e48cd5bf5744e265ee620624f4e6'}
     ]);
     const [hubTopSongs,setHubTopSongs] = useState([
         // cover arts images for songs urls

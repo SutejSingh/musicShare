@@ -13,6 +13,10 @@ export const homestyles = StyleSheet.create({
         width:'100%',
         padding:5
     },
+    mainHeaderLeft:{
+        flexDirection:'row',
+        alignItems:"center"
+    },
     mainHeaderRight: {  
         flexDirection:'row',
         alignItems:'center',

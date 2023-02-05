@@ -39,4 +39,67 @@ export default StyleSheet.create({
   sufix: {
     flexDirection: "column-reverse",
   },
+  friendBox:{
+    margin: 10,
+    width: 410,
+    height: 78,
+    borderWidth: 5,
+    backgroundColor: 'white',
+    borderColor:'white',
+    borderTopLeftRadius: 14,
+    borderBottomLeftRadius: 14,
+    borderBottomRightRadius: 14,
+    alignItems:'center',
+    borderStyle: "solid",
+  },
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: 2, height: 4},
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
+  },
+  friendBoxContent:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      alignItems:'center',
+      width:'100%',
+      padding:5 
+  },
+  friendBoxText:{
+    fontSize: 20, 
+  },
+  friendTabBar:{
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 20,
+    width: 410,
+    height: 35,
+    borderWidth: 1,
+    borderRadius: 14,
+  },
+  friendTabBarContent:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%',
+    padding:5 
+  },
+  friendTabBarOnTab:{
+    paddingLeft: 4,
+    paddingRight: 4,
+    height: 20,
+    borderRadius: 14,
+    backgroundColor: 'white',
+  },
+  gradientBackground: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+    width: '100%',
+},
 });

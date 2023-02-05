@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ConnectAccounts from './Screens/Auth/ConnectAccounts';
 import { NavigationContainer } from '@react-navigation/native';
@@ -40,12 +39,12 @@ export default function App() {
             />
             <Stack.Screen
               name="Tabs"
-              component={Tabs}
+              component={Tabs}     
               // Hiding header for Splash Screen
               options={{ headerShown: false }}
             />
          </Stack.Navigator>
     </NavigationContainer>
-  );
+  );      
 }
 
