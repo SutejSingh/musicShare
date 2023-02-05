@@ -114,5 +114,38 @@ export default StyleSheet.create({
     bottom: 0,
     zIndex: 1,
     width: '100%',
-},
+  },
+  friendBoxContentLeft:{
+    flexDirection:'row',
+    alignItems:"center"
+  },
+  friendBoxContentRight:{
+    alignItems:"center"
+  },
+  friendBoxButton:{
+    paddingLeft: 4,
+    paddingRight: 4,
+    height: 20,
+    borderRadius: 14,
+    backgroundColor: 'white',
+    flexDirection:'row',
+    alignItems:"center",
+  },
+  friendBoxButtonContent:{
+    flexDirection:'row',
+    alignItems:"center",
+    margin:4,
+  },
+  friendBoxButtonContent:{
+    flexDirection:'row',
+    alignItems:"center", 
+    marginTop: 8,
+  },
+  friendAppleOrSpotifyButton:{
+    alignItems:"center",
+    margin:4,
+  },
+  friendAppleButton:{
+   color:('rgba(249, 76, 87, 0.95)'),
+  }
 });
