@@ -13,7 +13,7 @@ import {
 } from '@expo-google-fonts/quicksand';
 import colors from "../../Styles/colors"
 
-const CreateAccount = () => {
+const CreateAccount = ({navigation}) => {
     let [fontsLoaded] = useFonts({
         Quicksand_300Light,
         Quicksand_400Regular,
@@ -29,17 +29,18 @@ const CreateAccount = () => {
     if (!fontsLoaded) {
         return <AppLoading />;
     }
-    const goToSignup = () => {
-        navigation.navigate('CreateAccount')
-        console.log("Go to Signup");
+    const goToSignin= () => {
+        navigation.navigate('Login')
+        console.log("Go to login");
     }
+    
     return ( 
         <View style={authStyles.container}>
             <LinearGradient
                 colors={[colors.primary, colors.secondary]}
                 locations={[0, 0.9]}
                 style={authStyles.gradientBackground}>
-            <View style={authStyles.authHeader}>
+            <View style={[authStyles.authHeader, {marginTop: 50}]}>
                 <Text style={[authStyles.boldTitleText,{fontFamily: 'Quicksand_700Bold',}]}>
                     Create Account
                 </Text>
@@ -83,8 +84,8 @@ const CreateAccount = () => {
                         style={authStyles.input} />
                     <View>
                     <View style={authStyles.formBottom}>
-                        <Text style={authStyles.formTinyText}>
-                        By continuing, I acknowledge and agree to and Song Hubs’s <Text style={authStyles.underline}>Terms & Conditions</Text> and  <Text style={authStyles.underline}>Privacy Policy</Text>
+                        <Text style={[authStyles.formTinyText,{textAlign: "center"}]}>
+                        By continuing, I acknowledge and agree to and Song Hubs’s <Text style={authStyles.underline}>Terms & Conditions</Text> and <Text style={authStyles.underline}>Privacy Policy</Text>
                         </Text>
                     </View>
                     </View>
@@ -93,6 +94,16 @@ const CreateAccount = () => {
                             Sign up
                         </Text>
                     </TouchableOpacity>
+                    <View style={authStyles.formBottom}>
+                        <Text style={authStyles.formTinyText}>
+                            Already have an account?
+                        </Text>
+                        <TouchableOpacity onPress={() => goToSignin()}>
+                            <Text style={[authStyles.boldTinyText, {marginLeft: 2}]}>
+                                Sign In 
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
             </LinearGradient>

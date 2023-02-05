@@ -73,10 +73,10 @@ const Login = ({navigation}) => {
                     </TouchableOpacity>
                     <View style={authStyles.formBottom}>
                         <Text style={authStyles.formTinyText}>
-                            Don't have an account?
+                            Don't have an account? 
                         </Text>
                         <TouchableOpacity onPress={() => goToSignup()}>
-                            <Text style={authStyles.boldTinyText}>
+                            <Text style={[authStyles.boldTinyText, {marginLeft: 2}]}>
                                 Sign Up Now
                             </Text>
                         </TouchableOpacity>

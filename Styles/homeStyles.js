@@ -13,6 +13,10 @@ export const homestyles = StyleSheet.create({
         width:'100%',
         padding:5
     },
+    mainHeaderLeft:{
+        flexDirection:'row',
+        alignItems:"center"
+    },
     mainHeaderRight: {  
         flexDirection:'row',
         alignItems:'center',
@@ -97,6 +101,12 @@ export const homestyles = StyleSheet.create({
     activityFriendName:{
         color:'white',
         fontSize:11
+    },
+    headerText:{
+        fontWeight: 700,
+        fontSize: 30,
+        lineHeight: 38,
+        textAlign: 'left',
     }
   });
   

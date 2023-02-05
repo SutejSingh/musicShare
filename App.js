@@ -11,7 +11,7 @@ export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="CreateAccount">
+         <Stack.Navigator initialRouteName="Tabs">
           {/* Stack Screen Login, Signup and splash screen */}
             <Stack.Screen
               name="SplashScreen"
