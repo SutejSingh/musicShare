@@ -15,32 +15,6 @@ import {
 const Friend = () => {
     return ( 
         <View>
-            <View style = {styles.friendTabBar}>
-                <View style={styles.friendTabBarContent}>
-                    {/* {My Friends} */}
-                    <LinearGradient
-                        colors={[colors.primary, colors.secondary]}
-                        style={{borderRadius: 13.5, padding: 1}}
-                    >
-                        <TouchableOpacity style={styles.friendTabBarOnTab}>
-                            <Text>
-                                My friends
-                            </Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                    <TouchableOpacity>
-                        <Text>
-                            Request
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>
-                           Suggestions
-                        </Text>
-                    </TouchableOpacity>
-
-                </View>
-            </View>
             <View style = {[styles.friendBox,styles.shadowProp]}>
                 <View style={styles.friendBoxContent}>
                     <Image source={require('../assets/sean.png')} style={{height:60,width:60}} />

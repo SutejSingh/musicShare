@@ -79,11 +79,23 @@ export default StyleSheet.create({
     borderRadius: 14,
   },
   friendTabBarContent:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    width:'100%',
-    padding:5 
+    height: 43,
+    borderRadius: 100,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    marginBottom: "3%",
+    marginTop: "3%"
+  },
+  tabSelector:{
+    backgroundColor: 'white',
+    height: 43,
+    borderRadius: 100,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    marginBottom: "3%",
+    marginTop: "3%"
   },
   friendTabBarOnTab:{
     paddingLeft: 4,
@@ -91,6 +103,7 @@ export default StyleSheet.create({
     height: 20,
     borderRadius: 14,
     backgroundColor: 'white',
+    flexDirection:'row'
   },
   gradientBackground: {
     flex: 1,
