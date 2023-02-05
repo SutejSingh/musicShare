@@ -4,10 +4,12 @@ import { homestyles } from "../Styles/homeStyles";
 import '../assets/global';
 import React from "react";
 import { Image, View,TouchableOpacity } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Header = ({navigation,page}) => {
-    const openMenu = () => {
-        navigation.navigate('SplashScreen');
+    const openMenu = async () => {
+        await AsyncStorage.removeItem('myUser')
+        navigation.navigate('Login');
     }
     return ( 
         <View style={homestyles.mainHeader}>
