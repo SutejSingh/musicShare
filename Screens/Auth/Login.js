@@ -49,7 +49,7 @@ const Login = ({navigation}) => {
                 navigation.navigate('Tabs')
             }else{
                 setLoading(false);
-                console.log(response.data.message);
+                alert(response.data.message);
             }
         })
         .catch((error) => {
