@@ -97,6 +97,38 @@ export const homestyles = StyleSheet.create({
     activityFriendName:{
         color:'white',
         fontSize:11
+    },
+    // top songs
+    twoTopSongsWrapper:{
+        margin:5,
+    },
+    topSongWrapper:{
+        flexDirection:'row',
+        height:60,
+        width:190,
+        borderRadius:10,
+        marginVertical:5,
+        // add shadow
+        shadowColor: "#000000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        alignItems:'center',
+        paddingHorizontal:5,
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        backgroundColor:'rgba(248,248,248,1)',
+    },
+    topSongArt:{
+        height:50,
+        width:50,
+        borderRadius:10,
+    },
+    topSongName:{
+        fontSize:11,
+        fontWeight:'900',
     }
   });
   
