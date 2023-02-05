@@ -25,8 +25,7 @@ const Header = ({navigation,page}) => {
                 </TouchableOpacity>
                 <TouchableOpacity>
                     {/* replace with user's image */}
-                    
-                    <Image source={require('../assets/sean.png')} style={{height:35,width:35}} />
+                    <Image source={global.user.spotifyProfilePic? {uri: global.user.spotifyProfilePic}: require('../assets/sean.png')} style={{height:35,width:35}} />
                 </TouchableOpacity>
             </View>
         </View>

@@ -81,7 +81,7 @@ router.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, async function(error, response, body) {
             console.log(body);
-            await UserModel.updateOne({_id: spotifyNewUserID}, {spotifyUsername: body.id, spotifyLink: body.external_urls.spotify, spotifyProfilePic: body.images[0]?.url ,spotifyAccessToken: access_token})
+            await UserModel.updateOne({_id: spotifyNewUserID}, {spotifyUsername: body.id, spotifyLink: body.external_urls?.spotify, spotifyProfilePic: body.images[0]?.url ,spotifyAccessToken: access_token})
             .then((data) => {
               res.send(data);
             })

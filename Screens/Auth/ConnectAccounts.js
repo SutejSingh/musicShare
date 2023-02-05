@@ -35,7 +35,6 @@ const ConnectAccounts = () => {
         Quicksand_700Bold,
     });
 
-
     const [result, setResult] = useState(null);
 
     const _handlePressButtonAsync = async () => {
