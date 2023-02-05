@@ -40,7 +40,6 @@ const FriendScreen = ({navigation,route}) => {
         {name: 'Daniel Youn', username: 'korean_daniel'},
         {name: 'Jaiv Doshi', username: 'jaiv_doshi'},
         {name: 'Joonho Hong', username: 'jho'}
-    
     ]);
     
     
