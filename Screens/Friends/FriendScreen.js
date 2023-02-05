@@ -34,15 +34,14 @@ const FriendScreen = () => {
     
     const [selectedFriendType, setSelectedFriendType] = useState(0)
     const [FriendData,setFriendData] = useState([
-        {name: 'Sean Kim', username: 'seann.kim'},
-        {name: 'Abhi', username: 'abbbhiii'},
-        {name: 'Linda Tam', username: 'Lindakola'},
-        {name: 'Daniel Youn', username: 'korean_daniel'},
-        {name: 'Jaiv Doshi', username: 'jaiv_doshi'},
-        {name: 'Joonho Hong', username: 'jho'}
+        {name: 'Sean Kim', username: 'seann.kim', appname1: 'spotify', appUsername1: 'shawn.kim', appname2: 'apple', appUsername2: 'shawnnn.kim'},
+        {name: 'Abhi', username: 'abbbhiii', appname1: 'apple', appUsername1: 'no'},
+        {name: 'Linda Tam', username: 'Lindakola', appname1: 'spotify', appUsername1: 'londakola'},
+        {name: 'Daniel Youn', username: 'korean_daniel', appname1: 'spotify', appUsername1: 'korean_daniel_SPO'},
+        {name: 'Jaiv Doshi', username: 'jaiv_doshi', appname1: 'spotify', appUsername1: 'jaivvvvvv'},
+        {name: 'Joonho Hong', username: 'jho', appname1: 'apple', appUsername1: 'jhoApple'}
     
     ]);
-    
     
     const leftAnim = useRef(new Animated.Value(50)).current
     useEffect(() => {
@@ -92,7 +91,7 @@ const FriendScreen = () => {
                         data={FriendData}
                         showsHorizontalScrollIndicator={false}
                         renderItem={({item}) => (
-                            <Friend item ={item}/>
+                            <Friend friend={true} item ={item}/>
                         )}
                         keyExtractor={item => item.index}
                     />

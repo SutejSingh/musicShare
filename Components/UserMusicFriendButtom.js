@@ -10,8 +10,8 @@ const UserMusicFriendButtom = (props) => {
 
         <TouchableOpacity style={styles.friendBoxRow}>
 
-            <Image source={app == "apple" ? require('../assets/Apple_Color.png'):require('../assets/Spotify_Color.png')} style={{width: 12, height: 12}}/>
-            <Text style={app == "apple" ? styles.friendAppleButton : styles.friendSpotifyButton}>
+            <Image source={app == "apple" ? require('../assets/Apple_Color.png'): app == "spotify" ? require('../assets/Spotify_Color.png') : ""} style={{width: 12, height: 12}}/>
+            <Text style={app == "apple" ? styles.friendAppleButton : app == "spotify" ? styles.friendSpotifyButton : ""}>
                 {props.username}
             </Text>
         </TouchableOpacity>
